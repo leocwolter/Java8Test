@@ -11,9 +11,9 @@ public class ValidationTests {
 
 	@Test
 	public void should_fail_second_condition() {
-		boolean containsEmailError = Validator.validate("string")
-				.with(ValidationStrategies::notEmpty)
-				.with(ValidationStrategies::email)
+		boolean containsEmailError = My.value("string")
+				.shouldBe(ValidationStrategies::notEmpty)
+				.shouldBe(ValidationStrategies::email)
 				.getErrors()
 				.contains(EMAIL_MESSAGE);
 		
@@ -22,9 +22,9 @@ public class ValidationTests {
 	
 	@Test
 	public void should_fail_first_and_second_condition() {
-		int numberOfErrors = Validator.validate("")
-				.with(ValidationStrategies::notEmpty)
-				.with(ValidationStrategies::email)
+		int numberOfErrors = My.value("")
+				.shouldBe(ValidationStrategies::notEmpty)
+				.shouldBe(ValidationStrategies::email)
 				.getErrors()
 				.size();
 		
@@ -33,9 +33,9 @@ public class ValidationTests {
 	
 	@Test
 	public void should_not_fail() {
-		Validator.validate("leo@leo.com")
-				.with(ValidationStrategies::notEmpty)
-				.with(ValidationStrategies::email)
+		My.value("leo@leo.com")
+				.shouldBe(ValidationStrategies::notEmpty)
+				.shouldBe(ValidationStrategies::email)
 				.ifHasError(Assert::fail);
 	}
 

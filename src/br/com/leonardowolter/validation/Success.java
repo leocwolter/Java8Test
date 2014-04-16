@@ -12,7 +12,7 @@ public class Success<T> implements Validation<T>{
 	}
 
 	@Override
-	public Validation<T> with(ValidationStrategy<T> vs) {
+	public Validation<T> shouldBe(ValidationStrategy<T> vs) {
 		List<String> errors = vs.validate(value);
 		if(errors.isEmpty()){
 			return new Success<T>(value);

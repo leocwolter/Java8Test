@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 public interface Validation<T> {
 
-	public Validation<T> with(ValidationStrategy<T> vs);
+	public Validation<T> shouldBe(ValidationStrategy<T> vs);
 
 	public List<String> getErrors();
 

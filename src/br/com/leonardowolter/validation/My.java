@@ -1,8 +1,8 @@
 package br.com.leonardowolter.validation;
 
-public class Validator {
+public class My {
 
-	public static <T> Validation<T> validate(T t) {
+	public static <T> Validation<T> value(T t) {
 		return new Success<T>(t);
 	}
 

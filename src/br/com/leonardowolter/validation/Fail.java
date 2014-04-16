@@ -16,7 +16,7 @@ public class Fail<T> implements Validation<T> {
 	}
 
 	@Override
-	public Validation<T> with(ValidationStrategy<T> vs) {
+	public Validation<T> shouldBe(ValidationStrategy<T> vs) {
 		errors.addAll(vs.validate(value)); 
 		return new Fail<T>(value, errors);
 	}
